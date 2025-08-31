@@ -1,6 +1,6 @@
 import random
 import matplotlib.pyplot as plt
-
+# performance optimizations added to handle large simulations(bug fix simulation)
 def roll_dice():
     
     die1 = random.randint(1, 6)
