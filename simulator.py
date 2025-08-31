@@ -22,8 +22,21 @@ def run_simulation(num_rolls=10000):
 
     return counts
 
-# This is the main part of the script that runs when you execute the file
+def calculate_percentages(counts, num_rolls=10000):
+    
+    percentages = {}
+    for key, value in counts.items():
+        percentages[key] = (value / num_rolls) * 100
+    return percentages
+
 if __name__ == "__main__":
-    results = run_simulation()
-    print("--- Simulation Results ---")
-    print(results)
+    simulation_results = run_simulation()
+    percentage_results = calculate_percentages(simulation_results)
+
+    print("--- Simulation Results (Counts) ---")
+    print(simulation_results)
+
+    print("\n--- Percentage Results ---")
+    for roll_sum, percentage in percentage_results.items():
+        # The :.2f formats the number to 2 decimal places
+        print(f"Sum {roll_sum}: {percentage:.2f}%")
